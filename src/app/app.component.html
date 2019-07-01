@@ -1,21 +1,73 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div style="text-align: center">
+    <h2>ejercicio 8</h2>
+    <app-dado valor="{{valor1}}"></app-dado>
+    <app-dado valor="{{valor2}}"></app-dado>
+    <app-dado valor="{{valor3}}"></app-dado>
+    <hr>
+    <button (click)="tirar()">Tirar</button>
+    <hr>
+    <p>Resultado:{{resultado}}</p>
+  </div>
 
-<router-outlet></router-outlet>
+<div>
+
+    <h2>7 ejercicio problema</h2>
+    <h3>Administración de artículos</h3>
+    <table border="1" *ngIf="hayRegistros(); else sinarticulos">
+        <tr>
+          <td>Código</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>Borrar</td>
+          <td>Seleccionar</td>
+        </tr>
+        <tr *ngFor="let art of articulos">
+          <td>{{art.codigo}}</td>
+          <td>{{art.descripcion}}</td>
+          <td>{{art.precio}}</td>
+          <td><button (click)="borrar(art)">Borrar?</button></td>
+          <td><button (click)="seleccionar(art)">Seleccionar</button></td>
+        </tr>
+      </table>
+      <ng-template #sinarticulos><p>No hay artículos</p></ng-template>
+      <p>Código: <input type="text" [(ngModel)]="art.codigo"> </p>
+      <p>Descripción: <input type="text" [(ngModel)]="art.descripcion"> </p>
+      <p>Precio: <input type="text" [(ngModel)]="art.precio"> </p>
+      <button (click)="agregar()">Agregar</button>
+      <button (click)="modificar()">Modificar</button>
+
+
+    <h2>7 ejercicio ngModel, enlace dos direcciones</h2>
+    <p>Ingrese nombre <input type="text" [(ngModel)]="nombre2"></p>
+    <p>Ingrese apellido <input type="text" [(ngModel)]="apellido2"></p>
+    <p>Nombre completo: {{nombre2}}, {{apellido2}}</p>
+    
+    
+    <h2>6 ejercicio contador</h2>
+    <p>{{contador}}</p>
+    <!--deben ir entre paréntesis los nombres de los eventos) y luego entre comillas el nombre del método que se llama:-->
+    <button (click)="incrementar()">Sumar 1</button>
+    <button (click)="decrementar()">Restar 1</button>
+  
+  
+    <h2>5</h2>
+    <p *ngIf="edad>18; else menor">Es mayor de edad</p>
+    <ng-template #menor><p>Es un menor de edad</p></ng-template>
+    <table border="1">
+      <tr>
+        <td>Sueldos</td>
+      </tr>
+      <tr *ngFor="let sueldo of sueldos">
+        <td>{{sueldo}}</td>
+      </tr>
+    </table>
+  
+  <p>http://www.tutorialesprogramacionya.com/angularya/</p>
+  <p>Nombre del empleado: {{nombre}}</p>
+  <p>Edad: {{edad}}</p>
+  <p>Los últimos tres sueldos son: {{sueldos[0]}}, {{sueldos[1]}} y {{sueldos[2]}}</p>
+  <p>En los últimos 3 meses ha ganado: {{ultimos3Sueldos()}}</p>
+  <p>{{esActivo()}}</p>
+
+  
+</div>
