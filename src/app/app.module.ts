@@ -8,6 +8,7 @@ import { DadoComponent } from './dado/dado.component';
 import { DadoEj9Component } from './dado-ej9/dado-ej9.component';
 import { CronometroComponent } from './cronometro/cronometro.component';
 import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
+import { ListadoarticulosComponent } from './listadoarticulos/listadoarticulos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SelectornumericoComponent } from './selectornumerico/selectornumerico.c
     DadoComponent,
     DadoEj9Component,
     CronometroComponent,
-    SelectornumericoComponent
+    SelectornumericoComponent,
+    ListadoarticulosComponent
   ],
   imports: [
     BrowserModule,

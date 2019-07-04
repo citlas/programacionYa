@@ -23,7 +23,16 @@ export class AppComponent {
   //ejercicio 12
   @ViewChild('selector2', null) selector2: SelectornumericoComponent;
   @ViewChild('selector3', null) selector3: SelectornumericoComponent;
- 
+ //ejercicio 13
+ articulos=[{codigo:1,descripcion:'papas',precio:10.22},
+            {codigo:2,descripcion:'manzanas',precio:12.10},
+            {codigo:3,descripcion:'melon',precio:52.30},
+            {codigo:4,descripcion:'cebollas',precio:17},
+            {codigo:5,descripcion:'calabaza',precio:20}]
+ //ejercicio 
+ //ejercicio 
+ //ejercicio 
+ //ejercicio 
 
   esActivo(){
     if(this.activo){
