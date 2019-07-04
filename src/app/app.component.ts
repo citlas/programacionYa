@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,17 @@ export class AppComponent {
   email = 'rpablo@gmail.com';
   sueldos = [1700, 1600, 1900];
   activo = true;
-  //ejercicio 9
+  //ejercicio 8
   valor1:number;
   valor2:number;
   valor3:number;
   resultado:string;
+ //ejercicio 10
+  mensaje='';
+  //ejercicio 12
+  @ViewChild('selector2', null) selector2: SelectornumericoComponent;
+  @ViewChild('selector3', null) selector3: SelectornumericoComponent;
+ 
 
   esActivo(){
     if(this.activo){
@@ -106,7 +113,7 @@ export class AppComponent {
     
   }
 
-  //ejercicio 9
+  //ejercicio 8
   constructor(){
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
@@ -127,5 +134,19 @@ export class AppComponent {
       this.resultado ='Perdió';
     }
   }
-  
+ 
+  //ejercicio 10
+  actualizar(t){
+    this.mensaje = t + '(se actualiza cada 10 segundos hasta llegar a 30)';
+  }
+
+//ejercicio 12
+fijarSelector2(valor:number){
+  this.selector2.fijar(valor);
 }
+fijarSelector3(valor:number){
+  this.selector3.fijar(valor);
+}
+
+
+}//fin

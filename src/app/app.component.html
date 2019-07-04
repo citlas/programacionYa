@@ -1,13 +1,57 @@
 <div style="text-align: center">
-    <h2>ejercicio 8</h2>
-    <app-dado valor="{{valor1}}"></app-dado>
-    <app-dado valor="{{valor2}}"></app-dado>
-    <app-dado valor="{{valor3}}"></app-dado>
-    <hr>
-    <button (click)="tirar()">Tirar</button>
-    <hr>
-    <p>Resultado:{{resultado}}</p>
-  </div>
+  <h2>ejercicio 12 - Componentes: llamar a métodos de la componente hija desde la clase padre</h2>
+  <app-selectornumerico minimo="1" maximo="10" #selector2></app-selectornumerico>
+  <br>
+  <button (click)="fijarSelector2(1)">Fijar en 1</button><br>
+  <button (click)="fijarSelector2(5)">Fijar en 5</button><br>
+  <button (click)="fijarSelector2(10)">Fijar en 10</button><br>
+  <hr>
+  <app-selectornumerico minimo="1" maximo="10" #selector3></app-selectornumerico>
+  <br>
+  <button (click)="fijarSelector3(1)">Fijar en 1</button><br>
+  <button (click)="fijarSelector3(5)">Fijar en 5</button><br>
+  <button (click)="fijarSelector3(10)">Fijar en 10</button><br>
+</div>
+<hr>
+
+<div style="text-align: center">
+  <h2>ejercicio 11 - selector númerico</h2>
+  <app-selectornumerico minimo="1" maximo="10" #selector1></app-selectornumerico>
+  <br>
+  <button (click)="selector1.fijar(1)">Fijar en 1</button><br>
+  <button (click)="selector1.fijar(5)">Fijar en 5</button><br>
+  <button (click)="selector1.fijar(10)">Fijar en 10</button><br>
+</div>
+<hr>
+<div style="text-align: center">
+  <h2>ejercicio 10 - cronometro</h2>
+  <h4>Prueba de la componente cronometro</h4>
+  <app-cronometro inicio="15" (multiplo10)="actualizar($event)"></app-cronometro>
+  <h4>Evento</h4>
+  <h5>{{mensaje}}</h5>
+</div>
+<hr>
+<div style="text-align: center">
+  <h2>ejercicio 9 dado pasando valor</h2>
+  <app-dado-ej9 valor="{{valor1}}"></app-dado-ej9>
+  <app-dado-ej9 valor="{{valor2}}"></app-dado-ej9>
+  <app-dado-ej9 valor="{{valor3}}"></app-dado-ej9>
+  <hr>
+  <button (click)="tirar()">Tirar</button>
+  <hr>
+  <p>Resultado:{{resultadoEj9}}</p>
+</div>
+
+<div style="text-align: center">
+  <h2>ejercicio 8</h2>
+  <app-dado valor="{{valor1}}"></app-dado>
+  <app-dado valor="{{valor2}}"></app-dado>
+  <app-dado valor="{{valor3}}"></app-dado>
+  <hr>
+  <button (click)="tirar()">Tirar</button>
+  <hr>
+  <p>Resultado:{{resultado}}</p>
+</div>
 
 <div>
 
