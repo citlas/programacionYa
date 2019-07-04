@@ -10,6 +10,7 @@ import { CronometroComponent } from './cronometro/cronometro.component';
 import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
 import { ListadoarticulosComponent } from './listadoarticulos/listadoarticulos.component';
 import { ElementosModule } from './elementos/elementos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ElementosModule } from './elementos/elementos.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ElementosModule
+    ElementosModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

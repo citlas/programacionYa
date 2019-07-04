@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -24,12 +25,13 @@ export class AppComponent {
   @ViewChild('selector2', null) selector2: SelectornumericoComponent;
   @ViewChild('selector3', null) selector3: SelectornumericoComponent;
  //ejercicio 13
- articulos=[{codigo:1,descripcion:'papas',precio:10.22},
+ articulos2=[{codigo:1,descripcion:'papa2s',precio:10.22},
             {codigo:2,descripcion:'manzanas',precio:12.10},
             {codigo:3,descripcion:'melon',precio:52.30},
-            {codigo:4,descripcion:'cebollas',precio:17},
+            {codigo:4,descripcion:'cebolla2s',precio:17},
             {codigo:5,descripcion:'calabaza',precio:20}]
- //ejercicio 
+ //ejercicio 15
+ private articulos15 = null;
  //ejercicio 
  //ejercicio 
  //ejercicio 
@@ -122,8 +124,8 @@ export class AppComponent {
     
   }
 
-  //ejercicio 8
-  constructor(){
+  //ejercicio 8, el http del 15
+  constructor(private http: HttpClient){
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
     this.valor3 = this.retornarAleatorio();
@@ -157,5 +159,17 @@ fijarSelector3(valor:number){
   this.selector3.fijar(valor);
 }
 
-
+//ejercicio 12
+ngOnInit(){
+  this.http.get("http://scratchya.com.ar/vue/datos.php")
+  .subscribe(
+    result=>{
+      this.articulos15 = result;
+    },
+    error =>{
+      console.log('problemas ej 15');
+      
+    }
+  )
+}
 }//fin
