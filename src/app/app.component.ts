@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
 import { HttpClient } from '@angular/common/http';
+import { Articulos17Service } from './articulos17.service';
+import { Articulos18Service } from './articulos18.service';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +34,10 @@ export class AppComponent {
             {codigo:5,descripcion:'calabaza',precio:20}]
  //ejercicio 15
  private articulos15 = null;
- //ejercicio 
- //ejercicio 
+ //ejercicio 17
+ articulos17 = null;
+ //ejercicio 18
+ articulos18 = null;
  //ejercicio 
 
   esActivo(){
@@ -124,8 +128,8 @@ export class AppComponent {
     
   }
 
-  //ejercicio 8, el http del 15
-  constructor(private http: HttpClient){
+  //ejercicio 8, el http del 15, el servicio del 17
+  constructor(private http: HttpClient, private articulos17Servicio: Articulos17Service, private articulos18Servicio: Articulos18Service){
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
     this.valor3 = this.retornarAleatorio();
@@ -171,5 +175,9 @@ ngOnInit(){
       
     }
   )
+  this.articulos17=this.articulos17Servicio.retornar();
+  //ej 18
+  this.articulos18Servicio.retornar()
+  .subscribe( result => this.articulos18 = result)
 }
 }//fin

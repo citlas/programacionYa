@@ -11,6 +11,8 @@ import { SelectornumericoComponent } from './selectornumerico/selectornumerico.c
 import { ListadoarticulosComponent } from './listadoarticulos/listadoarticulos.component';
 import { ElementosModule } from './elementos/elementos.module';
 import { HttpClientModule } from '@angular/common/http';
+import { JuegodadosComponent } from './juegodados/juegodados.component';
+import { AcercadeComponent } from './acercade/acercade.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     DadoEj9Component,
     CronometroComponent,
     SelectornumericoComponent,
-    ListadoarticulosComponent
+    ListadoarticulosComponent,
+    JuegodadosComponent,
+    AcercadeComponent
   ],
   imports: [
     BrowserModule,

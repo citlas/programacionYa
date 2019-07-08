@@ -1,4 +1,47 @@
 <div style="text-align: center">
+  <h2>18 - Servicios: recuperación de datos de un servidor web</h2>
+  <div *ngIf="articulos!=null; else espera" class="centerTable">
+  <table border="1">
+    <tr>
+      <td>Codigo</td>
+      <td>Descripcion</td>
+      <td>Precio</td>
+    </tr>
+    <tr *ngFor="let art of articulos18">
+        <td>{{art.codigo}}</td>
+        <td>{{art.descripcion}}</td>
+        <td>{{art.precio}}</td>
+    </tr>
+  </table>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
+</div>
+
+<div style="text-align: center">
+  <h2>17 - Servicios: concepto y pasos para crearlos</h2>
+  <div class="centerTable">
+    <table border="1">
+      <tr *ngFor="let articulo of articulos17">
+        <td>{{articulo.codigo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+      </tr>
+    </table>
+  </div>
+  
+</div>
+
+
+<div style="text-align: center">
+  <h2>ejercicio 16 - Router: definición de rutas</h2>
+  <a routerLink="/juegodados">Juego de dados</a>
+  <a routerLink="/acercade">Acerca de ...</a>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div style="text-align: center">
   <h2>ejercicio 15 - Petición de un archivo JSON a un servidor</h2>
   <div *ngIf="articulos15!=null; else espera">
     <table border="1">
