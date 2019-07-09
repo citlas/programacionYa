@@ -1,4 +1,15 @@
 <div style="text-align: center">
+  <h2>19 - Pipes: definición</h2>
+  <p>Nombre del cliente:{{nombre19}}</p>
+  <p>Nombre del cliente en mayúsculas:{{nombre19 | uppercase}}</p>
+  <p>Nombre del cliente en minúsculas:{{nombre19 | lowercase}}</p>
+  <p>El saldo es: {{saldo | currency:'$'}}</p>
+  <p>Días laborales: {{dias | slice:1:6}}</p>
+  <p>{{articulos19 | json}}</p>
+  <p>Fecha actual: {{fechaActual | date:'d/M/y'}}</p>
+</div>
+
+<div style="text-align: center">
   <h2>18 - Servicios: recuperación de datos de un servidor web</h2>
   <div *ngIf="articulos!=null; else espera" class="centerTable">
   <table border="1">

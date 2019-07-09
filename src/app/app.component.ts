@@ -38,6 +38,23 @@ export class AppComponent {
  articulos17 = null;
  //ejercicio 18
  articulos18 = null;
+ //ejercicio 19
+ nombre19='Juan Carlos';
+ saldo=1000.50;
+ dias=['domingo','lunes','martes','miercoles','jueves','viernes','sábado'];
+ articulos19=[{
+   codigo:1,
+   descripcion:'limón',
+   precio:5
+ },{
+  codigo:2,
+  descripcion:'papitas',
+  precio:10
+}];
+fechaActual= new Date();
+ //ejercicio 
+ //ejercicio 
+ //ejercicio 
  //ejercicio 
 
   esActivo(){
