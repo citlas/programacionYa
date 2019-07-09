@@ -1,4 +1,26 @@
 <div style="text-align: center">
+  <h2>20 - Pipes: creación de pipes personalizadas</h2>
+  <h3>numeros en castellano</h3>
+  <ul>
+    <li *ngFor="let valor of vector">
+      {{valor|letras}}
+    </li>
+  </ul>
+  <h3>numeros en inglés</h3>
+  <ul>
+    <li *ngFor="let valor of vector">
+      {{valor|letras:'ingles'}}
+    </li>
+  </ul>
+  <h3>numeros en portugés</h3>
+  <ul>
+    <li *ngFor="let valor of vector">
+      {{valor|letras:'portugues'}}
+    </li>
+  </ul>
+</div>
+
+<div style="text-align: center">
   <h2>19 - Pipes: definición</h2>
   <p>Nombre del cliente:{{nombre19}}</p>
   <p>Nombre del cliente en mayúsculas:{{nombre19 | uppercase}}</p>

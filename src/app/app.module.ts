@@ -13,6 +13,7 @@ import { ElementosModule } from './elementos/elementos.module';
 import { HttpClientModule } from '@angular/common/http';
 import { JuegodadosComponent } from './juegodados/juegodados.component';
 import { AcercadeComponent } from './acercade/acercade.component';
+import { LetrasPipe } from './letras.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AcercadeComponent } from './acercade/acercade.component';
     SelectornumericoComponent,
     ListadoarticulosComponent,
     JuegodadosComponent,
-    AcercadeComponent
+    AcercadeComponent,
+    LetrasPipe
   ],
   imports: [
     BrowserModule,
