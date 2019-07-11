@@ -1,4 +1,33 @@
 <div style="text-align: center">
+  <h2>28 - Comunicación entre Angular y PHP</h2>
+  <h3>Administracion de artículos</h3>
+  <table border="1" *ngIf="hayRegistros28(); else sinarticulos28">
+    <tr>
+      <td>Codigo</td><td>Descripcion</td><td>Precio</td><td>Borrar</td><td>Seleccionar</td>
+    </tr>
+    <tr *ngFor="let art of articulos28">
+      <td>{{art.codigo}}</td>
+      <td>{{art.descripcion}}</td>
+      <td>{{art.precio}}</td>
+      <td><button (click)="baja(art.codigo)">Borrar?</button></td>
+      <td><button (click)="seleccionar28(art.codigo)">Seleccionar</button></td>
+    </tr>
+  </table>
+  <ng-template #sinarticulos28>
+    <p>No hay artículos</p>
+  </ng-template>
+  <div>
+    <p>descripción: <input type="text" [(ngModel)]="art.descripcion"></p>
+    <p>precio: <input type="number" [(ngModel)]="art.precio"></p>
+    <p>
+      <button (click)="alta()">Agregar</button>
+      <button (click)="modificacion()">Modificar</button>
+    </p>
+  </div>
+</div>
+<hr><hr>
+
+<div style="text-align: center">
   <h2>20 - Pipes: creación de pipes personalizadas</h2>
   <h3>numeros en castellano</h3>
   <ul>

@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SelectornumericoComponent } from './selectornumerico/selectornumerico.component';
 import { HttpClient } from '@angular/common/http';
 import { Articulos17Service } from './articulos17.service';
 import { Articulos18Service } from './articulos18.service';
+import { Articulos28Service } from './articulos28.service';
 
 @Component({
   selector: 'app-root',
@@ -54,9 +55,7 @@ export class AppComponent {
 fechaActual= new Date();
  //ejercicio 20
  vector = [1,2,3,4,5,6,7];
- //ejercicio 
- //ejercicio 
- //ejercicio 
+  
 
   esActivo(){
     if(this.activo){
@@ -147,7 +146,7 @@ fechaActual= new Date();
   }
 
   //ejercicio 8, el http del 15, el servicio del 17
-  constructor(private http: HttpClient, private articulos17Servicio: Articulos17Service, private articulos18Servicio: Articulos18Service){
+  constructor(private http: HttpClient, private articulos17Servicio: Articulos17Service, private articulos18Servicio: Articulos18Service, private articulos28Servicio: Articulos28Service){
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
     this.valor3 = this.retornarAleatorio();
@@ -197,5 +196,134 @@ ngOnInit(){
   //ej 18
   this.articulos18Servicio.retornar()
   .subscribe( result => this.articulos18 = result)
+
+  this.recuperarTodos();
+}
+
+//ejercicio 28
+articulos28=null;
+art28={
+  codigo:null,
+  descripcion:null,
+  precio:null
+}
+
+recuperarTodos(){
+  this.articulos28Servicio.recuperarTodos().subscribe(result => this.articulos28 = result);
+}
+
+alta(){
+  this.articulos28Servicio.alta(this.art28).subscribe(datos=>{
+    if(datos['resultado']=='OK'){
+      alert(datos['mensaje']);
+      this.recuperarTodos();
+    }
+  });
+}
+
+
+baja(codigo){
+  this.articulos28Servicio.baja(codigo).subscribe(datos =>{
+    if(datos['resultado']=='OK'){
+      alert(datos['mensaje']);
+      this.recuperarTodos();
+    }
+  })
+}
+
+modificacion(){
+  this.articulos28Servicio.modificacion(this.art28).subscribe(datos =>{
+    if(datos['resultado']=='OK'){
+      alert(datos['mensaje']);
+      this.recuperarTodos();
+    }
+  })
+}
+
+seleccionar28(codigo){
+  this.articulos28Servicio.seleccionar(codigo).subscribe(result => this.art28 = result[0]);
+}
+
+hayRegistros28(){
+  return true
 }
 }//fin
+
+ //ejercicio 27
+class PilaEnteros
+{
+    private vec:number[]=[];
+
+    insertar(x: number) {
+        this.vec.push(x);
+    }
+
+    extraer() {
+       if (this.vec.length>0)
+         return this.vec.pop();
+       else
+         return null; 
+    }
+}
+
+class PilaStrings
+{
+    private vec:string[]=[];
+
+    insertar(x: string) {
+        this.vec.push(x);
+    }
+
+    extraer() {
+       if (this.vec.length>0)
+         return this.vec.pop();
+       else
+         return null; 
+    }
+}
+
+console.log('ejercicio 27')
+let pila1=new PilaEnteros();
+pila1.insertar(20);
+pila1.insertar(43);
+pila1.insertar(1);
+console.log(pila1.extraer());
+console.log(pila1);
+
+let pila2=new PilaStrings();
+pila2.insertar('juan');
+pila2.insertar('ana');
+pila2.insertar('luis');
+console.log(pila2.extraer());
+console.log(pila2);
+
+console.log('pila generica')
+class PilaGenerica<T>{
+  private vec:T[]=[];
+
+  insertar(x: T) {
+      this.vec.push(x);
+  }
+
+  extraer() {
+     if (this.vec.length>0)
+       return this.vec.pop();
+     else
+       return null; 
+  }
+}
+
+class Persona {
+  constructor(public nombre:string, public edad:number) { }
+}
+
+let pila5:PilaGenerica<Persona>;
+pila5=new PilaGenerica<Persona>();
+pila5.insertar(new Persona('pedro', 33));
+pila5.insertar(new Persona('maria', 33));
+pila5.insertar(new Persona('marcos', 33));
+console.log(pila5.extraer());
+console.log(pila5);
+
+console.log('-------------- fin ejercicio 27')
+ //ejercicio
